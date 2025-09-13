@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import './App.css';
-import './App2.css'; // Extra styles
+// import './App2.css'; // Extra styles
+import { Link } from "react-router-dom";
+
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Font Awesome
 
 function App() {
@@ -24,7 +26,8 @@ function App() {
   };
 
   return (
-    <div
+    <div id="main">
+      <div
       ref={containerRef}
       className={`container ${isActive ? 'active' : ''}`}
       id="container"
@@ -86,7 +89,11 @@ function App() {
           <a href="#" onClick={() => playTTS(lang === "hi" ? "क्या आपने अपना पासवर्ड भूल गए?" : "Forgot your password?")}>
             Forgot your password?
           </a>
+          <Link to='/'>
           <button>Sign In</button>
+          </Link>
+
+          
         </form>
       </div>
 
@@ -113,6 +120,7 @@ function App() {
           <option value="hi">हिन्दी (Hindi)</option>
         </select>
       </div>
+    </div>
     </div>
   );
 }
