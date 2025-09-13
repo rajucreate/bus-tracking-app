@@ -1,0 +1,39 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font-family: Arial, sans-serif; */
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #ffcc70);
+  background-size: 600% 600%;
+  animation: moveGradient 12s ease infinite;
+  z-index: -1;
+}
+
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
