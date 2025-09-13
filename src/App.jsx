@@ -1,11 +1,27 @@
 import React, { useRef, useState } from 'react';
 import './App.css';
-import './App2.css'; // If this holds extra styles
+import './App2.css'; // Extra styles
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Font Awesome
 
 function App() {
   const containerRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
+  const [lang, setLang] = useState("en");
+
+  // Your VoiceRSS API key
+  const apiKey = "0de4382d43f54c67a9ae9d56ac8e121b";
+
+  const playTTS = (text) => {
+    const voiceLang = lang === "hi" ? "hi-in" : "en-us";
+    const url = `https://api.voicerss.org/?key=${apiKey}&hl=${voiceLang}&src=${encodeURIComponent(
+      text
+    )}`;
+
+    const audio = new Audio(url);
+    audio.crossOrigin = "anonymous";
+    audio.load();
+    audio.play().catch((err) => console.error("TTS playback failed:", err));
+  };
 
   return (
     <div
@@ -14,6 +30,7 @@ function App() {
       id="container"
     >
 
+      {/* Sign Up Form */}
       <div className="form-container sign-up">
         <form>
           <h1>Create Account</h1>
@@ -24,14 +41,27 @@ function App() {
             <a href="#" className="icon"><i className="fab fa-linkedin-in"></i></a>
           </div>
           <span>or use your email for registration</span>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+
+          <div style={{ display: "flex", alignItems: "center", marginTop: "5px" }}>
+            <input type="text" placeholder="Name" />
+            <button type="button" onClick={() => playTTS(lang === "hi" ? "नाम" : "Name")} style={{ marginLeft: "5px" }}>🔊</button>
+          </div>
+
+          <div style={{ display: "flex", alignItems: "center", marginTop: "5px" }}>
+            <input type="email" placeholder="Email" />
+            <button type="button" onClick={() => playTTS(lang === "hi" ? "ईमेल" : "Email")} style={{ marginLeft: "5px" }}>🔊</button>
+          </div>
+
+          <div style={{ display: "flex", alignItems: "center", marginTop: "5px" }}>
+            <input type="password" placeholder="Password" />
+            <button type="button" onClick={() => playTTS(lang === "hi" ? "पासवर्ड" : "Password")} style={{ marginLeft: "5px" }}>🔊</button>
+          </div>
+
           <button>Sign Up</button>
         </form>
       </div>
 
-      
+      {/* Sign In Form */}
       <div className="form-container sign-in">
         <form>
           <h1>Sign In</h1>
@@ -42,14 +72,25 @@ function App() {
             <a href="#" className="icon"><i className="fab fa-linkedin-in"></i></a>
           </div>
           <span>or use your email and password</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <a href="#">Forgot your password?</a>
+
+          <div style={{ display: "flex", alignItems: "center", marginTop: "5px" }}>
+            <input type="email" placeholder="Email" />
+            <button type="button" onClick={() => playTTS(lang === "hi" ? "ईमेल" : "Email")} style={{ marginLeft: "5px" }}>🔊</button>
+          </div>
+
+          <div style={{ display: "flex", alignItems: "center", marginTop: "5px" }}>
+            <input type="password" placeholder="Password" />
+            <button type="button" onClick={() => playTTS(lang === "hi" ? "पासवर्ड" : "Password")} style={{ marginLeft: "5px" }}>🔊</button>
+          </div>
+
+          <a href="#" onClick={() => playTTS(lang === "hi" ? "क्या आपने अपना पासवर्ड भूल गए?" : "Forgot your password?")}>
+            Forgot your password?
+          </a>
           <button>Sign In</button>
         </form>
       </div>
 
-      
+      {/* Toggle Panels */}
       <div className="toggle-container">
         <div className="toggle">
           <div className="toggle-panel toggle-left">
@@ -63,6 +104,14 @@ function App() {
             <button className="hidden" onClick={() => setIsActive(true)}>Sign Up</button>
           </div>
         </div>
+      </div>
+
+      {/* Language Selector */}
+      <div style={{ position: "absolute", top: 10, right: 10 }}>
+        <select value={lang} onChange={(e) => setLang(e.target.value)}>
+          <option value="en">English</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+        </select>
       </div>
     </div>
   );
