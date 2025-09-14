@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App2.css";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function App() {
+export default function Home() {
   const [isOffline, setIsOffline] = useState(false);
   const [source, setSource] = useState('');
   const [destination, setDestination] = useState('');
@@ -27,12 +27,11 @@ export default function App() {
       return;
     }
 
-      if (source === destination) {
-        alert("Source and Destination cannot be the same.");
-        return;
+    if (source === destination) {
+      alert("Source and Destination cannot be the same.");
+      return;
     }
 
-    // Navigate to BusDetails page and pass source & destination
     navigate("/busdetails", { state: { source, destination } });
   };
 
@@ -41,19 +40,14 @@ export default function App() {
       <div id="home_main">
         <header>
           <h1>Bus Tracker</h1>
-
           <div className="search-bar">
             <input type="text" placeholder="Enter Bus Number" />
             <button>Search</button>
           </div>
 
           <div className="auth-buttons">
-            <Link to='/App'>
-              <button className="login">Login</button>
-            </Link>
-            <Link to='/App'>
-              <button className="signup">Signup</button>
-            </Link>
+            <Link to='/App'><button className="login">Login</button></Link>
+            <Link to='/App'><button className="signup">Signup</button></Link>
           </div>
         </header>
 
@@ -62,10 +56,9 @@ export default function App() {
             <h2>Nearest Stop</h2>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83834362837!2d76.7794183!3d30.7333148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0d8b2b2f07%3A0x8b86b1b845a70d2!2sBus%20Stop!5e0!3m2!1sen!2sin!4v1694523412345"
-              width="100%"
-              height="160"
+              width="100%" height="160"
               style={{ border: 0, borderRadius: "10px" }}
-              allowFullScreen=""
+              allowFullScreen
               loading="lazy"
             ></iframe>
           </div>
@@ -113,13 +106,14 @@ export default function App() {
         <footer>© 2025 Bus Tracker. All rights reserved.</footer>
       </div>
 
+      {/* Offline Modal */}
       {isOffline && (
-        <div className="modal">
+        <div className="modal-overlay">
           <div className="modal-content">
-            <h3>⚠ Internet Lost</h3>
+            <h3>⚠ Network Not Connected</h3>
             <p>
-              Your connection has been lost. Please contact <br />
-              <b>+91 8393729037</b> for help.
+              Your internet connection is lost. To get information about available buses, please contact: <br />
+              <b>+91 8393729037</b>
             </p>
             <button onClick={() => setIsOffline(false)}>OK</button>
           </div>
