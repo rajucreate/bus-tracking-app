@@ -1,0 +1,72 @@
+/* src/BusDetails.css */
+@import "leaflet/dist/leaflet.css";
+
+.bus-details {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.bus-details h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #007bff;
+}
+
+.bus-details h2 span {
+  color: #ff5722;
+}
+
+.bus-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.bus-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bus-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.bus-card h3 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #444;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.bus-card p {
+  font-size: 16px;
+  margin: 6px 0;
+}
+
+.bus-card strong {
+  color: #222;
+}
+
+.no-buses {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.bus-card.active {
+  border: 2px solid #007bff;
+  background: #f0f8ff;
+}
+

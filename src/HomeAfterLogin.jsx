@@ -5,6 +5,11 @@ import "./App2.css"; // same CSS as Home.jsx
 export default function HomeAfterLogin() {
   const [isOffline, setIsOffline] = useState(false);
   const [user, setUser] = useState(null);
+
+  // ✅ Added source & destination state
+  const [source, setSource] = useState('');
+  const [destination, setDestination] = useState('');
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,6 +36,21 @@ export default function HomeAfterLogin() {
   const handleLogout = () => {
     localStorage.removeItem("user");
     navigate("/"); // go back to landing page
+  };
+
+  const handleSearch = () => {
+    if (!source || !destination) {
+      alert("Please select both source and destination.");
+      return;
+    }
+
+    if (source === destination) {
+      alert("Source and Destination cannot be the same.");
+      return;
+    }
+
+    // Navigate to BusDetails page and pass source & destination
+    navigate("/busdetails", { state: { source, destination } });
   };
 
   if (!user) return null; // wait while checking
@@ -74,7 +94,7 @@ export default function HomeAfterLogin() {
           <div className="card">
             <h2>Plan Your Trip</h2>
             <label htmlFor="source">Source:</label>
-            <select id="source">
+            <select id="source" value={source} onChange={(e) => setSource(e.target.value)}>
               <option value="">--Select Source--</option>
               <option>Ludhiana</option>
               <option>Amritsar</option>
@@ -91,7 +111,7 @@ export default function HomeAfterLogin() {
             </select>
 
             <label htmlFor="destination">Destination:</label>
-            <select id="destination">
+            <select id="destination" value={destination} onChange={(e) => setDestination(e.target.value)}>
               <option value="">--Select Destination--</option>
               <option>Ludhiana</option>
               <option>Amritsar</option>
@@ -107,7 +127,7 @@ export default function HomeAfterLogin() {
               <option>Ropar</option>
             </select>
 
-            <button className="search-btn">Search</button>
+            <button className="search-btn" onClick={handleSearch}>Search</button>
           </div>
         </main>
 

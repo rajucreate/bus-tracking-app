@@ -1,0 +1,85 @@
+[
+  {
+    "source": "Ludhiana",
+    "destination": "Amritsar",
+    "buses": [
+      { "name": "Express 101", "departureTime": "08:00 AM", "arrivalTime": "11:00 AM", "fare": 250 },
+      { "name": "SuperFast 202", "departureTime": "10:00 AM", "arrivalTime": "01:00 PM", "fare": 300 },
+      { "name": "Volvo Comfort", "departureTime": "02:00 PM", "arrivalTime": "05:00 PM", "fare": 400 }
+    ]
+  },
+  {
+    "source": "Amritsar",
+    "destination": "Ludhiana",
+    "buses": [
+      { "name": "Express 103", "departureTime": "09:00 AM", "arrivalTime": "12:00 PM", "fare": 260 },
+      { "name": "SuperFast 205", "departureTime": "01:00 PM", "arrivalTime": "04:00 PM", "fare": 300 }
+    ]
+  },
+  {
+    "source": "Jalandhar",
+    "destination": "Patiala",
+    "buses": [
+      { "name": "Jalandhar Express", "departureTime": "07:30 AM", "arrivalTime": "11:00 AM", "fare": 220 },
+      { "name": "Patiala SuperFast", "departureTime": "10:30 AM", "arrivalTime": "02:00 PM", "fare": 250 },
+      { "name": "Volvo Deluxe", "departureTime": "03:00 PM", "arrivalTime": "06:30 PM", "fare": 350 }
+    ]
+  },
+  {
+    "source": "Patiala",
+    "destination": "Ludhiana",
+    "buses": [
+      { "name": "Patiala Express", "departureTime": "06:30 AM", "arrivalTime": "09:30 AM", "fare": 200 },
+      { "name": "SuperFast 301", "departureTime": "12:00 PM", "arrivalTime": "03:00 PM", "fare": 250 },
+      { "name": "Volvo Comfort", "departureTime": "05:00 PM", "arrivalTime": "08:00 PM", "fare": 400 }
+    ]
+  },
+  {
+    "source": "Bathinda",
+    "destination": "Moga",
+    "buses": [
+      { "name": "Bathinda Local", "departureTime": "08:00 AM", "arrivalTime": "09:30 AM", "fare": 100 },
+      { "name": "Moga Express", "departureTime": "01:00 PM", "arrivalTime": "02:30 PM", "fare": 120 }
+    ]
+  },
+  {
+    "source": "Hoshiarpur",
+    "destination": "Sangrur",
+    "buses": [
+      { "name": "Hoshiarpur Express", "departureTime": "09:00 AM", "arrivalTime": "12:30 PM", "fare": 180 },
+      { "name": "Volvo Deluxe", "departureTime": "03:00 PM", "arrivalTime": "06:30 PM", "fare": 300 }
+    ]
+  },
+  {
+    "source": "Firozpur",
+    "destination": "Faridkot",
+    "buses": [
+      { "name": "Firozpur Local", "departureTime": "07:00 AM", "arrivalTime": "08:30 AM", "fare": 90 },
+      { "name": "Faridkot Express", "departureTime": "02:00 PM", "arrivalTime": "03:30 PM", "fare": 110 }
+    ]
+  },
+  {
+    "source": "Kapurthala",
+    "destination": "Ropar",
+    "buses": [
+      { "name": "Kapurthala Express", "departureTime": "06:00 AM", "arrivalTime": "09:00 AM", "fare": 200 },
+      { "name": "Ropar SuperFast", "departureTime": "01:00 PM", "arrivalTime": "04:00 PM", "fare": 250 }
+    ]
+  },
+  {
+    "source": "Ludhiana",
+    "destination": "Patiala",
+    "buses": [
+      { "name": "Volvo Lux", "departureTime": "08:30 AM", "arrivalTime": "11:30 AM", "fare": 350 },
+      { "name": "Express 210", "departureTime": "02:30 PM", "arrivalTime": "05:30 PM", "fare": 250 }
+    ]
+  },
+  {
+    "source": "Amritsar",
+    "destination": "Jalandhar",
+    "buses": [
+      { "name": "Amritsar Express", "departureTime": "07:00 AM", "arrivalTime": "09:30 AM", "fare": 200 },
+      { "name": "SuperFast 402", "departureTime": "01:30 PM", "arrivalTime": "04:00 PM", "fare": 220 }
+    ]
+  }
+]
